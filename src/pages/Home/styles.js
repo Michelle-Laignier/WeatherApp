@@ -5,10 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  height: 100vh;
-  margin: 0 auto;
+  min-height: 100vh;
+  margin: 0 auto 100px;
   width: 60vw;
-
 
   .search {
     display: flex;
@@ -22,7 +21,28 @@ export const Container = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    font-size: 4rem;
+
+    img {
+      height: 224px;
+      width: 224px;
+    }
+    
+    p {
+      font-size: 4rem;
+      font-weight: 500;
+    }
+  }
+
+  .min-temp,
+  .max-temp {
+    img {
+      height: 50px;
+    }
+  }
+
+  .desc p,
+  .temp p:first-child {
+    font-size: 2rem;
     font-weight: 500;
   }
 
@@ -32,7 +52,8 @@ export const Container = styled.div`
   }
 
   .humidity,
-  .wind {
+  .wind,
+  .temp {
     align-items: center;
     display: flex;
     gap: 10px;
@@ -43,6 +64,7 @@ export const Container = styled.div`
     height: 30px;
   }
 
+  .temp-info,
   .humidity-info,
   .wind-info {
     font-size: 1.2rem;
