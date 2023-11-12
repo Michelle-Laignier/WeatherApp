@@ -8,47 +8,53 @@ export const Container = styled.div`
   min-height: 100vh;
   margin: 0 auto 100px;
   width: 60vw;
+`
 
-  .search {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin: 40px auto 0;
-    width: 100%;
+export const Search = styled.div`
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin: 40px auto 0;
+  width: 100%;
+`
+
+export const Degrees = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 224px;
+    width: 224px;
   }
 
-  .degrees {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
-    img {
-      height: 224px;
-      width: 224px;
-    }
+  p {
+    font-size: 6rem;
+    font-weight: 500;
+  }
     
-    p {
-      font-size: 4rem;
-      font-weight: 500;
-    }
+  p:last-child {
+    font-size: 4rem;
+    font-weight: 500;
   }
+`
+
+export const Description = styled.div`
+  p {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+`
+
+export const Infos = styled.div`
+  display: flex;
+  gap: 50px;
 
   .min-temp,
   .max-temp {
     img {
       height: 50px;
     }
-  }
-
-  .desc p,
-  .temp p:first-child {
-    font-size: 2rem;
-    font-weight: 500;
-  }
-
-  .infos {
-    display: flex;
-    gap: 50px;
   }
 
   .humidity,
@@ -62,6 +68,11 @@ export const Container = styled.div`
   .humidity img,
   .wind img {
     height: 30px;
+  }
+
+  .temp p:first-child {
+    font-size: 2rem;
+    font-weight: 500;
   }
 
   .temp-info,

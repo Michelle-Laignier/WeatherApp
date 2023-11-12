@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { IoMdSearch } from "react-icons/io"
 
-import { Container } from "./styles"
+import { Container, Search, Degrees, Description, Infos } from "./styles"
 
 import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
@@ -26,7 +26,7 @@ export function Home() {
   const [windSpeed, setWindSpeed] = useState("")
 
   async function weatherSearch() {
-    let apiKey = /* api key here */
+    let apiKey = 
     let city = document.querySelector(".city-input")
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=Metric&appid=${apiKey}&lang=pt_br`
 
@@ -73,22 +73,22 @@ export function Home() {
   return(
     <Container>
       
-      <div className="search">
+      <Search>
         <Input placeholder="Nome da cidade" className="city-input"/>
         <Button icon={IoMdSearch} onClick={weatherSearch}/>
-      </div>
+      </Search>
 
-      <div className="degrees">
+      <Degrees>
         <img src={img} alt="" />
         <p>{degrees}ºC</p>
         <p>{city}</p>
-      </div>
+      </Degrees>
 
-      <div className="desc">
+      <Description>
         <p>{description}</p>
-      </div>
+      </Description>
 
-      <div className="infos">
+      <Infos>
         <div className="min-temp temp">
           <img src="../../../src/assets/minTemp.png" alt="Ícone de temperatura baixa." />
           <div className="temp-info">
@@ -104,9 +104,9 @@ export function Home() {
             <p>Máxima</p>
           </div>
         </div>
-      </div>
+      </Infos>
 
-      <div className="infos">
+      <Infos>
         <div className="humidity">
           <img src="../../../src/assets/humidity.png" alt="Ícone de umidade" />
           <div className="humidity-info">
@@ -122,7 +122,8 @@ export function Home() {
             <p>Vento</p>
           </div>
         </div>
-      </div>
+      </Infos>
+
     </Container>
   )
 }
