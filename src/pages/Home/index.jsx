@@ -118,7 +118,7 @@ export function Home() {
         <div className="wind">
           <img src="../../../src/assets/wind.png" alt="Ícone de vento" />
           <div className="wind-info">
-            <p className="wind-p">{windSpeed} km/h</p>
+            <p className="wind-p">{windSpeed}km/h</p>
             <p>Vento</p>
           </div>
         </div>

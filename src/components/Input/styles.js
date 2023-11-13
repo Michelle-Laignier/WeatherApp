@@ -9,8 +9,7 @@ export const Container = styled.div`
     border-radius: 50px;
     color: ${({ theme }) => theme.COLORS.TEXT_BTN_INPUT};
     font-size: 1.2rem;
-    //padding: 1.25rem 3.4rem 1.25rem 1rem;
-    padding-left: 1rem;
+    text-align: center;
 
     height: 100%;
     width: 100%;

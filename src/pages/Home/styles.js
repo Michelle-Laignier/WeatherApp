@@ -14,14 +14,15 @@ export const Search = styled.div`
   display: flex;
   gap: 30px;
   justify-content: center;
-  margin: 40px auto 0;
-  width: 100%;
+  margin: 40px 0;
+  width: 150%;
 `
 
 export const Degrees = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  text-align: center;
 
   img {
     height: 224px;
