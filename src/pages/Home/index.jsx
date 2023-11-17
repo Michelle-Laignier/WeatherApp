@@ -14,6 +14,11 @@ import rain from "../../../src/assets/rain.png"
 import snow from "../../../src/assets/snow.png"
 import thunder from "../../../src/assets/thunder.png"
 
+import minTemp from "../../../src/assets/minTemp.png"
+import maxTemp from "../../../src/assets/maxTemp.png"
+import humidityImg from "../../../src/assets/humidity.png"
+import wind from "../../../src/assets/wind.png"
+
 import { api } from '../../services/api'
 
 export function Home() {
@@ -100,7 +105,7 @@ export function Home() {
 
       <Infos>
         <div className="min-temp temp">
-          <img src="../../../src/assets/minTemp.png" alt="Ícone de temperatura baixa." />
+          <img src={minTemp} alt="Ícone de temperatura baixa." />
           <div className="temp-info">
             <p>{minTemperature}ºC</p>
             <p>Mínima</p>
@@ -108,7 +113,7 @@ export function Home() {
         </div>
 
         <div className="max-temp temp">
-          <img src="../../../src/assets/maxTemp.png" alt="Ícone de temperatura alta." />
+          <img src={maxTemp} alt="Ícone de temperatura alta." />
           <div className="temp-info">
             <p>{maxTemperature}ºC</p>
             <p>Máxima</p>
@@ -118,7 +123,7 @@ export function Home() {
 
       <Infos>
         <div className="humidity">
-          <img src="../../../src/assets/humidity.png" alt="Ícone de umidade" />
+          <img src={humidityImg} alt="Ícone de umidade" />
           <div className="humidity-info">
             <p className="humidity-p">{humidity}%</p>
             <p>Umidade</p>
@@ -126,7 +131,8 @@ export function Home() {
         </div>
 
         <div className="wind">
-          <img src="../../../src/assets/wind.png" alt="Ícone de vento" />
+          <img src={wind} alt="Ícone de vento" />
+          
           <div className="wind-info">
             <p className="wind-p">{windSpeed}km/h</p>
             <p>Vento</p>
