@@ -14,6 +14,7 @@ import rain from "../../../src/assets/rain.png"
 import snow from "../../../src/assets/snow.png"
 import thunder from "../../../src/assets/thunder.png"
 
+import { api } from '../../services/api'
 
 export function Home() {
   const [img, setImg] = useState(cloud)
@@ -24,19 +25,27 @@ export function Home() {
   const [maxTemperature, setMaxTemperature] = useState("")
   const [humidity, setHumidity] = useState("")
   const [windSpeed, setWindSpeed] = useState("")
+  const [apiKey, setApiKey] = useState("");
 
-  async function weatherSearch() {
-    let apiKey = 
+  async function weatherSearch() {    
     let city = document.querySelector(".city-input")
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=Metric&appid=${apiKey}&lang=pt_br`
-
     if(city.value === "") {
       return
     }
-
+    
     try {
-      let response = await fetch(url)
-      let data = await response.json()
+      const response = await api.get('/api/key');
+      setApiKey(response.data.apiKey);
+
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=Metric&appid=${response.data.apiKey}&lang=pt_br`;
+      let weatherResponse = await fetch(url);
+
+      if (weatherResponse.status === 401) {
+        console.error('Erro 401 - Chave da API inválida');
+        return;
+      }
+
+      let data = await weatherResponse.json();
 
       if(data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
         setImg(clear)
