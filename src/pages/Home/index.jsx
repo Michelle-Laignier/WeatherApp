@@ -34,18 +34,19 @@ export function Home() {
     }
     
     try {
-      const response = await api.get('/api/key');
-      setApiKey(response.data.apiKey);
+      const response = await api.get('/api/key')
+      setApiKey(response.data.apiKey)
 
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=Metric&appid=${response.data.apiKey}&lang=pt_br`;
-      let weatherResponse = await fetch(url);
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=Metric&appid=${response.data.apiKey}&lang=pt_br`
+      let weatherResponse = await fetch(url)
 
       if (weatherResponse.status === 401) {
-        console.error('Erro 401 - Chave da API inválida');
-        return;
+        alert("Ops! Algo deu errado :( Tente novamente.")
+        console.error('Erro 401 - Chave da API inválida')
+        return
       }
 
-      let data = await weatherResponse.json();
+      let data = await weatherResponse.json()
 
       if(data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
         setImg(clear)
