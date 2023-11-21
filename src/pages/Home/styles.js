@@ -8,13 +8,17 @@ export const Container = styled.div`
   min-height: 100vh;
   margin: 0 auto 100px;
   width: 60vw;
+
+  .load {
+    font-size: 1.2rem;
+  }
 `
 
 export const Search = styled.div`
   display: flex;
   gap: 30px;
   justify-content: center;
-  margin: 40px 0;
+  margin-top: 40px;
   width: 150%;
 `
 

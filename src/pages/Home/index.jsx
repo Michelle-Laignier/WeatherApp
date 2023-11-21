@@ -22,6 +22,7 @@ import wind from "../../../src/assets/wind.png"
 import { api } from '../../services/api'
 
 export function Home() {
+  const [load, setLoad] = useState("Após clicar em pesquisar, aguarde")
   const [img, setImg] = useState(cloud)
   const [degrees, setDegrees] = useState("")
   const [city, setCity] = useState("")
@@ -73,6 +74,7 @@ export function Home() {
         setImg(clouds)
       }
       
+      setLoad("")
       setDegrees(Math.floor(data.main.temp))
       setCity(data.name)
       setDescription(data.weather[0].description)
@@ -92,6 +94,8 @@ export function Home() {
         <Input placeholder="Nome da cidade" className="city-input"/>
         <Button icon={IoMdSearch} onClick={weatherSearch}/>
       </Search>
+
+      <p className="load">{load}</p>
 
       <Degrees>
         <img src={img} alt="" />
