@@ -16,8 +16,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.COLORS.BG};
-    color: ${({ theme }) => theme.COLORS.TEXT};;
+    color: ${({ theme }) => theme.COLORS.TEXT};
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 0.3px;
   }
 
   body, input, button {

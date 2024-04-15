@@ -19,10 +19,19 @@ import maxTemp from "../../../src/assets/maxTemp.png"
 import humidityImg from "../../../src/assets/humidity.png"
 import wind from "../../../src/assets/wind.png"
 
+import bgClear from "../../../src/assets/bg-clear.jpg"
+import bgCloud from "../../../src/assets/bg-cloud.jpg"
+import bgClouds from "../../../src/assets/bg-clouds.jpg"
+import bgRain from "../../../src/assets/bg-rain.jpg"
+import bgSnow from "../../../src/assets/bg-snow.jpg"
+import bgThunder from "../../../src/assets/bg-thunder.jpg"
+
+
 import { api } from '../../services/api'
 
 export function Home() {
   const [load, setLoad] = useState("Após clicar em pesquisar, aguarde")
+  const [bg, setBg] = useState(bgClear)
   const [img, setImg] = useState(cloud)
   const [degrees, setDegrees] = useState("")
   const [city, setCity] = useState("")
@@ -56,22 +65,31 @@ export function Home() {
 
       if(data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
         setImg(clear)
+        setBg(bgClear)
       } else if(data.weather[0].icon === "02d" || data.weather[0].icon === "02n") {
         setImg(cloud)
+        setBg(bgCloud)
       } else if (data.weather[0].icon === "03d" || data.weather[0].icon === "03n") {
         setImg(clouds)
+        setBg(bgCloud)
       } else if(data.weather[0].icon === "04d" || data.weather[0].icon === "04n") {
         setImg(clouds)
+        setBg(bgCloud)
       } else if(data.weather[0].icon === "09d" || data.weather[0].icon === "09n") {
         setImg(rain)
+        setBg(bgRain)
       } else if(data.weather[0].icon === "10d" || data.weather[0].icon === "10n") {
         setImg(drizzle)
+        setBg(bgRain)
       } else if(data.weather[0].icon === "11d" || data.weather[0].icon === "11n") {
         setImg(thunder)
+        setBg(bgThunder)
       } else if(data.weather[0].icon === "13d" || data.weather[0].icon === "13n") {
         setImg(snow)
+        setBg(bgSnow)
       } else if(data.weather[0].icon === "50d" || data.weather[0].icon === "50n") {
         setImg(clouds)
+        setBg(bgClouds)
       }
       
       setLoad("")
@@ -88,8 +106,8 @@ export function Home() {
   }
 
   return(
-    <Container>
-      
+    <Container style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+
       <Search>
         <Input placeholder="Nome da cidade" className="city-input"/>
         <Button icon={IoMdSearch} onClick={weatherSearch}/>

@@ -6,11 +6,12 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 40px;
   min-height: 100vh;
-  margin: 0 auto 100px;
-  width: 60vw;
+  padding: 0 auto 100px;
+  width: 100%;
 
   .load {
     font-size: 1.2rem;
+    -webkit-text-stroke-width: 0px;
   }
 `
 
@@ -19,7 +20,9 @@ export const Search = styled.div`
   gap: 30px;
   justify-content: center;
   margin-top: 40px;
-  width: 150%;
+  width: 80%;
+
+  -webkit-text-stroke-width: 0px;
 `
 
 export const Degrees = styled.div`
@@ -29,12 +32,12 @@ export const Degrees = styled.div`
   text-align: center;
 
   img {
-    height: 224px;
-    width: 224px;
+    height: 130px;
+    width: 130px;
   }
 
   p {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 500;
   }
     
